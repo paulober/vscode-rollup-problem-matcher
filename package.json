@@ -1,0 +1,61 @@
+{
+  "name": "rollup-problem-matcher",
+  "displayName": "Rollup Problem Matcher",
+  "description": "A problem matcher for the Rollup CLI. Currently only supports Typescript and the -watch option.",
+  "version": "0.1.0",
+  "author": "paulober",
+  "publisher": "paulober",
+  "license": "MPL-2.0",
+  "engines": {
+    "vscode": "^1.76.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Debuggers",
+    "Other"
+  ],
+  "contributes": {
+    "problemPatterns": [
+      {
+        "name": "rollup-ts-watch-pattern",
+        "regexp": "^\\(!\\) Plugin typescript: @rollup\\/plugin-typescript TS(?<errorCode>\\d+): (?<message>.+)\\r?\\n(?<file>.*?):\\s*\\((?<line>\\d+):(?<column>\\d+)\\)$",
+        "file": 3,
+        "line": 4,
+        "column": 5,
+        "code": 1,
+        "message": 2
+      }
+    ],
+    "problemMatchers": [
+      {
+        "name": "rollup-ts-watch",
+        "owner": "typescript",
+        "label": "Rollup -watch typescript problem matcher",
+        "source": "ts",
+        "applyTo": "closedDocuments",
+        "fileLocation": [
+          "relative",
+          "${cwd}"
+        ],
+        "pattern": "$rollup-ts-watch-pattern",
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": {
+            "regexp": "^rollup v\\d+\\.\\d+\\.\\d+$"
+          },
+          "endsPattern": {
+            "regexp": "^\\[[:-\\s\\d]+\\] waiting for changes\\.\\.\\.$"
+          }
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "",
+    "compile": ""
+  },
+  "devDependencies": {
+    "@types/node": "^16.x",
+    "@types/vscode": "^1.76.0"
+  }
+}
