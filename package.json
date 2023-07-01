@@ -17,6 +17,16 @@
   "engines": {
     "vscode": "^1.76.0"
   },
+  "keywords": [
+    "rollup",
+    "rollup cli",
+    "rollup problem matcher",
+    "problem matcher",
+    "tsc-watch",
+    "rollup-ts-watch",
+    "typescript",
+    "typescript problem matcher"
+  ],
   "categories": [
     "Programming Languages",
     "Debuggers",
